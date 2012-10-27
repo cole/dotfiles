@@ -1,0 +1,16 @@
+[user]
+	name = Cole Maclean
+	email = cole@warpmail.net
+[core]
+	autocrlf = input
+	quotepath = false
+	editor = mate --name 'Commit Message' -w -l 1
+	excludesfile = /Users/cole/.gitignore
+[difftool "Kaleidoscope"]
+	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+[diff]
+	tool = Kaleidoscope
+[push]
+	default = simple
