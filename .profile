@@ -49,4 +49,7 @@ export ARCHFLAGS="-arch i386 -arch x86_64"
 # Python shell autocomplete
 export PYTHONSTARTUP=~/.pystartup
 
+# Add NPM global packages bin folder
+PATH="/usr/local/share/npm/bin/:${PATH}"
+
 export PATH # finally, export PATH
