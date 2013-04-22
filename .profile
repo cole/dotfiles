@@ -4,7 +4,7 @@
 
 ## PATH 
 PATH="/usr/local/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin:~/Documents/Scripts"
-export MANPATH=/usr/local/share/man:/usr/share/man
+export MANPATH="/usr/local/share/man:/usr/share/man"
 
 # Set up some variables for 'screen' 
 if [ -z "${SCREENDIR}" ];then echo -n 
@@ -48,6 +48,9 @@ export ARCHFLAGS="-arch i386 -arch x86_64"
 
 # Python shell autocomplete
 export PYTHONSTARTUP=~/.pystartup
+
+# Add Python scripts to path
+PATH="/usr/local/share/python3:/usr/local/share/python:${PATH}"
 
 # Add NPM global packages bin folder
 PATH="/usr/local/share/npm/bin:${PATH}"
