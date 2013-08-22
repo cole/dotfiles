@@ -22,10 +22,10 @@ if sys.version_info[0] == 2:
         readline.write_history_file(historyPath)
 
     if os.path.exists(historyPath):
-	try:
+        try:
             readline.read_history_file(historyPath)
-	except IOError:
-	    pass
+        except IOError:
+            pass
 
     atexit.register(save_history)
     del os, atexit, readline, rlcompleter, save_history, historyPath
