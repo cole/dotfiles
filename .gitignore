@@ -6,6 +6,11 @@
 .dropbox/
 .ssh/
 .subversion/
+.gnupg/
+.pip/
+.viminfo
+.psql_history
+.pyhistory
 Desktop/
 Documents
 Downloads/
