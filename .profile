@@ -56,3 +56,4 @@ PATH="/usr/local/share/python3:/usr/local/share/python:${PATH}"
 PATH="/usr/local/share/npm/bin:${PATH}"
 
 export PATH # finally, export PATH
+export EDITOR="mate"
