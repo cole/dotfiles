@@ -54,3 +54,6 @@ PATH="/usr/local/share/npm/bin:${PATH}"
 
 export PATH # finally, export PATH
 export EDITOR="mate"
+
+# Source autoenv
+source /usr/local/opt/autoenv/activate.sh
