@@ -48,9 +48,15 @@ export ARCHFLAGS="-arch i386 -arch x86_64"
 
 # Python shell autocomplete
 export PYTHONSTARTUP=~/.pystartup
+# Libxml2 for python
+export PYTHONPATH=/usr/local/opt/libxml2/lib/python2.7/site-packages:$PYTHONPATH
 
 # Add NPM global packages bin folder
 PATH="/usr/local/share/npm/bin:${PATH}"
+
+# rbenv
+export RBENV_ROOT=/usr/local/var/rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 export PATH # finally, export PATH
 export EDITOR="mate"
