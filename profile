@@ -39,8 +39,14 @@ if [ -z "${DISPLAY}" ];then echo -n
 fi 
 
 if which mate > /dev/null; then
-    export EDITOR="mate"
+    EDITOR="mate"
+elif which rmate > /dev/null; then
+    EDITOR="rmate"
+else
+    # fallback to VIM
+    EDITOR="vim"
 fi
+export EDITOR
 
 # OS X Homebrew specific
 if which brew > /dev/null; then
