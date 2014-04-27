@@ -3,63 +3,85 @@
 ## 
 
 ## PATH 
-PATH="/usr/local/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin:~/Documents/Scripts"
+PATH="/usr/local/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin"
 export MANPATH="/usr/local/share/man:/usr/share/man"
 
+# If we have a scripts folder, add it
+if [ -d ~/Documents/Scripts ]; then
+    PATH="$PATH:~/Documents/Scripts"
+fi
+
 # Set up some variables for 'screen' 
-if [ -z "${SCREENDIR}" ];then echo -n 
-        export SCREENDIR="${HOME}/.screen" 
-                # Save my screen sockets within my $HOME dir 
+if [ -z "${SCREENDIR}" ];then echo -n
+    # Save my screen sockets within my $HOME dir
+    export SCREENDIR="${HOME}/.screen" 
 fi 
 
 # Set $TERM to 'vt100' (a safe default) if, for some 
 # reason, it is set to 'network' (which is not valid!) 
-if [ "${TERM}" = "network" ];then echo -n 
-        export TERM="vt100" 
-                # not 'nsterm' because if its 'network' we're 
-                # probly not in Terminal.app 
+if [ "${TERM}" = "network" ];then echo -n
+    # not 'nsterm' because if its 'network' we're 
+    # probly not in Terminal.app
+    export TERM="vt100" 
 fi 
 # Set $COLORTERM, all this does is trick *some* apps into 
 # using color in the terminal, which should happen anyway. 
 if [ -z "${COLORTERM}" ];then echo -n 
-        export COLORTERM="${TERM}" 
+    export COLORTERM="${TERM}" 
 fi 
 # another color option, this one for BSD's ls 
 if [ -z "${CLICOLOR}" ];then echo -n 
-        export CLICOLOR='1' # can be set to anything, actually 
+    export CLICOLOR='1' # can be set to anything, actually 
 fi 
 # If $DISPLAY is not already set, set it! 
 if [ -z "${DISPLAY}" ];then echo -n 
-        export DISPLAY=':0' 
+    export DISPLAY=':0' 
 fi 
 
-# PEAR bullshit
-PEARPATH="/usr/local/pear"
-PATH="${PEARPATH}/bin:${PATH}"
+if which mate > /dev/null; then
+    export EDITOR="mate"
+fi
 
-# OS X Homebrew
-# Go ENV
-export GOROOT=`brew --cellar`/go/HEAD
-export GOARCH=amd64
-export GOOS=darwin
+# OS X Homebrew specific
+if which brew > /dev/null; then
+    # Go ENV
+    if which go > /dev/null; then
+        export GOPATH=`brew --prefix`/share/go
+    fi
+fi
 
-# for python script compilation
+# Python related
+# for script compilation
 export ARCHFLAGS="-arch i386 -arch x86_64"
-
-# Python shell autocomplete
+# Shell autocomplete
 export PYTHONSTARTUP=~/.pystartup
-# Libxml2 for python
-export PYTHONPATH=/usr/local/opt/libxml2/lib/python2.7/site-packages:$PYTHONPATH
+# Libxml2
+if [ -d /usr/local/opt/libxml2/lib/python2.7/site-packages ]; then
+    export PYTHONPATH=/usr/local/opt/libxml2/lib/python2.7/site-packages:$PYTHONPATH
+fi
 
 # Add NPM global packages bin folder
-PATH="/usr/local/share/npm/bin:${PATH}"
+if which npm > /dev/null; then
+    NPM_PATH=`npm -g bin`
+    if [[ PATH =~ ^.*$NPM_PATH.* ]]; then
+        PATH="${NPM_PATH}:${PATH}"
+    fi
+fi
 
 # rbenv
-export RBENV_ROOT=/usr/local/var/rbenv
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
-export PATH # finally, export PATH
-export EDITOR="mate"
+if which rbenv > /dev/null; then
+    export RBENV_ROOT=/usr/local/var/rbenv
+    eval "$(rbenv init -)";
+fi
 
 # Source autoenv
-source /usr/local/opt/autoenv/activate.sh
+if [ -r /usr/local/opt/autoenv/activate.sh ];then echo -n
+    source /usr/local/opt/autoenv/activate.sh
+fi
+
+# Source any API access keys
+if [ -r ~/.api_keys ];then echo -n
+    source ~/.api_keys
+fi 
+
+export PATH # finally, export PATH
