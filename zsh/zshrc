@@ -1,5 +1,3 @@
-source ~/.zsh/.zprofile
-
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.zsh/oh-my-zsh
 
@@ -18,8 +16,6 @@ export DISABLE_AUTO_UPDATE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(gitfast textmate rails4 pow ruby rbenv rake python pip django perl osx battery brew node npm mysql rsync)
+plugins=(atom autoenv battery brew django fabric gitfast gpg-agent mysql node npm osx perl python pip rails rake rbenv redis-cli rsync ruby screen ssh-agent sudo textmate virtualenv xcode)
 
 source $ZSH/oh-my-zsh.sh
-
-# Customize to your needs...
