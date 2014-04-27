@@ -1,25 +1,25 @@
 [user]
-	name = Cole Maclean
-	email = hi@cole.io
+    name = Cole Maclean
+    email = hi@cole.io
 [core]
-	autocrlf = input
-	quotepath = false
-	editor = mate --name 'Commit Message' -w -l 1
-	excludesfile = /Users/cole/.gitignore
+    autocrlf = input
+    quotepath = false
+    editor = mate --name 'Commit Message' -w -l 1
+    excludesfile = /Users/cole/.gitignore
 [push]
-	default = current
+    default = current
 [difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+    cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [diff]
-	tool = Kaleidoscope
+    tool = Kaleidoscope
 [difftool]
-	prompt = false
+    prompt = false
 [mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustExitCode = true
+    cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+    trustExitCode = true
 [mergetool]
-	prompt = false
+    prompt = false
 [merge]
-	tool = Kaleidoscope
+    tool = Kaleidoscope
 [credential]
-	helper = osxkeychain
+    helper = osxkeychain
