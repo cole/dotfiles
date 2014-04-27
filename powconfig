@@ -1,2 +1,0 @@
-export POW_DST_PORT=20559
-export PATH="/Users/cole/.rbenv/shims:/Users/cole/.rbenv/bin:$PATH"
