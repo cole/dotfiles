@@ -39,8 +39,8 @@ if which pyenv > /dev/null; and status --is-interactive
 end
 
 # Shell autocomplete
-if test -e $HOME/.pystartup
-set -x PYTHONSTARTUP $HOME/.pythonrc.py
+if test -e $HOME/.pythonrc.py
+    set -x PYTHONSTARTUP $HOME/.pythonrc.py
 end
 
 # Add NPM global packages bin folder

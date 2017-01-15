@@ -2,8 +2,8 @@
 # interactive interpreter. Requires Python 2.0+, readline. Autocomplete is
 # bound to the Tab key (you can change it - see readline docs).
 #
-# Store the file in ~/.pystartup, and set an environment variable to point
-# to it:  "export PYTHONSTARTUP=/home/user/.pystartup" in bash.
+# Store the file in ~/.pythonrc.py, and set an environment variable to point
+# to it:  "export PYTHONSTARTUP=/home/user/.pythonrc.py" in bash.
 #
 # Note that PYTHONSTARTUP does *not* expand "~", so you have to put in the
 # full path to your home directory.
