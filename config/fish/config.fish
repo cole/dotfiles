@@ -33,6 +33,11 @@ end
 # Python related
 # for script compilation
 set -x ARCHFLAGS "-arch i386 -arch x86_64"
+# pyenv
+if which pyenv > /dev/null; and status --is-interactive
+    . (pyenv init -|psub)
+end
+
 # Shell autocomplete
 if test -e $HOME/.pystartup
 set -x PYTHONSTARTUP $HOME/.pythonrc.py
@@ -53,4 +58,9 @@ end
 # Source any API access keys
 if test -e $HOME/.config/fish/api_keys.fish
     source $HOME/.config/fish/api_keys.fish
+end
+
+# Iterm2 integration
+if test $TERM_PROGRAM = iTerm.app; and test -e {$HOME}/.iterm2_shell_integration.fish
+    source {$HOME}/.iterm2_shell_integration.fish
 end
