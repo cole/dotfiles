@@ -4,7 +4,7 @@
 [core]
     autocrlf = input
     quotepath = false
-    editor = mate --name 'Commit Message' -w -l 1
+    editor = subl -n -w
     excludesfile = /Users/cole/.gitignore
 [push]
     default = current
