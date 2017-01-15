@@ -4,7 +4,7 @@
 [core]
     autocrlf = input
     quotepath = false
-    editor = mate --name 'Commit Message' -w -l 1
+    editor = subl -n -w
     excludesfile = /Users/cole/.gitignore
 [push]
     default = current
@@ -23,3 +23,8 @@
     tool = Kaleidoscope
 [credential]
     helper = osxkeychain
+[filter "media"]
+    required = true
+    clean = git media clean %f
+    smudge = git media smudge %f
+
