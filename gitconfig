@@ -7,7 +7,21 @@
     editor = subl -n -w
     excludesfile = /Users/cole/.gitignore
 [push]
-    default = current
+    default = simple
+    followTags = true
+[merge]
+    ff = only
+    conflictstyle = diff3
+[rebase]
+    autostash = true
+[stash]
+    showPatch = true
+[status]
+    showUntrackedFiles = all
+[transfer]
+    fsckobjects = true
+[log]
+    decorage = full
 [difftool "Kaleidoscope"]
     cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [diff]
@@ -27,4 +41,9 @@
     required = true
     clean = git media clean %f
     smudge = git media smudge %f
-
+[alias]
+    prune = fetch --prune
+    undo = reset --soft HEAD^
+    stash-all = stash save --include-untracked
+    glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+    fpush = push --force-with-lease
