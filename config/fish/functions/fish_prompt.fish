@@ -1,3 +1,9 @@
 function fish_prompt
-        echo -n -s '[' (set_color purple) (hostname -s) (set_color normal) ':' (set_color cyan) (whoami) (set_color normal) '] ' (set_color yellow) (prompt_pwd) (set_color normal) ' $ '
+	test $SSH_TTY
+    and printf (set_color red)$USER(set_color brwhite)'@'(set_color yellow)(prompt_hostname)' '
+    test "$USER" = 'root'
+    and echo (set_color red)"#"
+
+    # Main
+    echo -n (set_color cyan)(prompt_pwd) (set_color red)'❯'(set_color yellow)'❯'(set_color green)'❯ '
 end
