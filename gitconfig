@@ -1,10 +1,10 @@
 [user]
     name = Cole Maclean
-    email = hi@cole.io
+    email = hi@colemaclean.dev
 [core]
     autocrlf = input
     quotepath = false
-    editor = subl -n -w
+	editor = code --wait --new-window
     excludesfile = /Users/cole/.gitignore
 [push]
     default = simple
@@ -47,3 +47,5 @@
     stash-all = stash save --include-untracked
     glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
     fpush = push --force-with-lease
+[rerere]
+    enabled = true
