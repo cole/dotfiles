@@ -1,0 +1,12 @@
+config/configstore
+config/fish/api_keys.fish
+config/fish/fish_history
+config/fish/fishd.*
+config/fish/conf.d
+config/fisher
+config/wheel
+config/fish/functions/*
+!config/fish/functions/fish_prompt.fish
+!config/fish/functions/fish_greeting.fish
+config/fish/fish_variables
+config/fish/completions
