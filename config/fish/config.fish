@@ -11,8 +11,8 @@ if test -d $HOME/.screen
     set -x SCREENDIR $HOME/.screen
 end
 
-if which subl > /dev/null
-    set -x EDITOR subl
+if which code > /dev/null
+    set -x EDITOR code -w
 else
     set -x EDITOR vim
 end
@@ -28,10 +28,14 @@ end
 # Python related
 # for script compilation
 set -x ARCHFLAGS "-arch i386 -arch x86_64"
+
 # pyenv
 if which pyenv > /dev/null; and status --is-interactive
     . (pyenv init -|psub)
 end
+
+# virtualfish
+eval (python3 -m virtualfish auto_activation)
 
 if which rbenv > /dev/null; and status --is-interactive
     source (rbenv init -|psub)
@@ -48,6 +52,6 @@ if test -e $HOME/.config/fish/api_keys.fish
 end
 
 # Iterm2 integration
-if test $TERM_PROGRAM = iTerm.app; and test -e {$HOME}/.iterm2_shell_integration.fish
+if test "$TERM_PROGRAM" = "iTerm.app"; and test -e {$HOME}/.iterm2_shell_integration.fish
     source {$HOME}/.iterm2_shell_integration.fish
 end
